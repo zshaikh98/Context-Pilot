@@ -1,0 +1,28 @@
+{
+  "name": "contextpilot",
+  "version": "0.1.0",
+  "description": "AI token and context companion for Perplexity, ChatGPT, and Claude.",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.3",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "gpt-tokenizer": "^2.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "ContextPilot",
+  "version": "0.1.0",
+  "description": "AI token and context companion for Perplexity, ChatGPT, and Claude.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.perplexity.ai/*",
+    "https://chat.openai.com/*",
+    "https://chatgpt.com/*",
+    "https://claude.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://www.perplexity.ai/*"],
+      "js": ["perplexity_content.js"]
+    },
+    {
+      "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"],
+      "js": ["chatgpt_content.js"]
+    },
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["claude_content.js"]
+    }
+  ]
+}
