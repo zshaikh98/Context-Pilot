@@ -60,3 +60,10 @@ export async function getUsage(): Promise<UsageStore> {
 export async function saveUsage(usage: UsageStore): Promise<void> {
   await chrome.storage.local.set({ usage });
 }
+
+export function pruneUsage(usage: UsageStore, retentionDays: number = 30): UsageStore {
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - retentionDays);
+  const cutoffStr = cutoff.toISOString().slice(0, 10);
+  return usage.filter((entry) => entry.date >= cutoffStr);
+}

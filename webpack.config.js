@@ -2,7 +2,7 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+module.exports = (env, argv) => ({
   entry: {
     background: './src/background/service_worker.ts',
     perplexity_content: './src/content/perplexity_content.ts',
@@ -50,5 +50,5 @@ module.exports = {
   optimization: {
     splitChunks: false,
   },
-  devtool: 'cheap-module-source-map',
-};
+  devtool: argv.mode === 'production' ? false : 'cheap-module-source-map',
+});
